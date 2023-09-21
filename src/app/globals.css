@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+@layer base {
+  h1 {
+    @apply font-extrabold text-2xl mb-3
+  }
+}
+
+body {
+  background-color: #EEE;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 25px;
+  margin: 0;
+  overflow: auto;
+  height: 100vh;
+}
+
+.sliding-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -300px; /* Initial position, menu is hidden to the right */
+  width: 300px; /* Same width as .sliding-menu-container */
+  background-color: #333; /* Set your desired background color */
+  transition: left 0.3s ease-in-out; /* Animation transition */
+  padding: 20px;
+}
+
+.sliding-menu.open {
+  left: 0; /* When menu is open, it slides in from the right */
+}
+
+.menu-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Style the menu items as needed */
+.sliding-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sliding-menu li {
+  margin: 10px 0;
+  color: white;
+}
